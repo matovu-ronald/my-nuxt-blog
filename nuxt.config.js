@@ -22,18 +22,25 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
+  loading: { color: '#0000ff', height: '5px', duration: 5000 },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#0000ff'
+  },
 
   /*
   ** Global CSS
   */
   css: [
+    '~assets/styles/main.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/core-components.js',
+    '~plugins/date-filter.js'
   ],
 
   /*
@@ -68,5 +75,13 @@ module.exports = {
         })
       }
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://maron-nuxt-blog.firebaseio.com'
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+
   }
 }
